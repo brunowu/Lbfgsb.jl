@@ -1,5 +1,10 @@
 # Lbfgsb.jl
 
+[![Build Status](https://travis-ci.org/yuhonglin/Lbfgsb.jl.png?branch=master)](https://travis-ci.org/yuhonglin/Lbfgsb.jl)
+
+
+This is wrapper of the famous [lbfgsb fortran library] of Julia language inspired by [this wrapper]
+
 ## Update by [@brunowu](https://github.com/brunowu)
 
 This is a fork of a Julia wrapper of the L-bfgs-b fortran code from [jey/Lbfgsb.jl](https://github.com/jey/Lbfgsb.jl).
@@ -10,10 +15,6 @@ deprecated since Julia 1.0.
 ### New installation
 run ```Pkg.add(PackageSpec(url="https://github.com/brunowu/Lbfgsb.jl", rev="master"))```
 
-[![Build Status](https://travis-ci.org/yuhonglin/Lbfgsb.jl.png?branch=master)](https://travis-ci.org/yuhonglin/Lbfgsb.jl)
-
-
-This is wrapper of the famous [lbfgsb fortran library] of Julia language inspired by [this wrapper]
 
 ## version
 0.0.1 (just usable)
