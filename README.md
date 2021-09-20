@@ -1,6 +1,6 @@
 # Lbfgsb.jl
 
-## Update
+## Update by [@brunowu](https://github.com/brunowu)
 
 This is a fork of a Julia wrapper of the L-bfgs-b fortran code from [jey/Lbfgsb.jl](https://github.com/jey/Lbfgsb.jl).
 
