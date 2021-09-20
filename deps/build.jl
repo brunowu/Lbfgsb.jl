@@ -25,7 +25,11 @@ end
 #run make file
 function runmake()
     usrdir = joinpath(currentDirPath, "usr", "lib");
-    run(`make OUTPUTDIR=$(usrdir)`)
+    try
+        run(`make OUTPUTDIR=$(usrdir)`)
+    catch err
+        @warn err
+    end
 end
 
 # write the "deps.jl" file
