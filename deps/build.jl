@@ -25,7 +25,7 @@ end
 #run make file
 function runmake()
     usrdir = joinpath(currentDirPath, "usr", "lib");
-    run(`sudo make OUTPUTDIR=$(usrdir)`)
+    run(`make OUTPUTDIR=$(usrdir)`)
 end
 
 # write the "deps.jl" file
