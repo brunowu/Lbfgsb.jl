@@ -75,3 +75,4 @@ libpysegfit.so
 segfit
 
 *.log
+deps.jl
