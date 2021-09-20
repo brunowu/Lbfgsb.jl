@@ -25,8 +25,7 @@ end
 #run make file
 function runmake()
     usrdir = joinpath(currentDirPath, "usr", "lib");
-    #run(`make OUTPUTDIR=$(usrdir)`)
-    run(`gfortran -O3 -fPIC -shared $(usrdir)/../../Lbfgsb.3.0/lbfgsb.f $(usrdir)/../../Lbfgsb.3.0/linpack.f $(usrdir)/../../Lbfgsb.3.0/timer.f $(usrdir)/../../Lbfgsb.3.0/blas.f -o -o $(usrdir)/liblbfgsbf.so`)
+    run(`sudo make OUTPUTDIR=$(usrdir)`)
 end
 
 # write the "deps.jl" file
