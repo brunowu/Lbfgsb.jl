@@ -29,6 +29,7 @@ function runmake()
         run(`make OUTPUTDIR=$(usrdir)`)
     catch err
         @warn err
+        run(`sudo make OUTPUTDIR=$(usrdir)`)
     end
 end
 
