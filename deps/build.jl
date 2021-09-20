@@ -28,19 +28,10 @@ function runmake()
     try
         run(`make OUTPUTDIR=$(usrdir)`)
     catch err
-        @warn err
+        @warn "The error" err
         run(`sudo make OUTPUTDIR=$(usrdir)`)
     end
 end
 
-# write the "deps.jl" file
-function writeDeps()
-    libpath = joinpath(currentDirPath, "usr", "lib", "liblbfgsbf.so")
-    outputfile = open(joinpath(currentDirPath, "deps.jl"), "w");
-    write( outputfile, "import Libdl\n    macro checked_lib(libname, path)\n    (Libdl.dlopen_e(path) == C_NULL) && error(\"Unable to load \\n\\n\$libname (\$path)\n\nPlease re-run Pkg.build(package), and restart Julia.\")\n    quote const \$(esc(libname)) = \$path end\nend\n@checked_lib liblbfgsbf \"$(libpath)\"\n")
-    close(outputfile)
-end
-
 mklibdir()
 runmake()
-writeDeps()
