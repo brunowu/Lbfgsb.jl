@@ -19,7 +19,7 @@ function callLBFGS(cmd, n, m, x, lb, ub, btype, f, g, factr, pgtol, wa, iwa,
     end
 
     ccall((:setulb_, liblbfgsbf),
-          Void,
+          Nothing,
           (Ptr{Int32},
            Ptr{Int32},
            Ptr{Float64},
@@ -58,7 +58,7 @@ function callLBFGS(cmd, n, m, x, lb, ub, btype, f, g, factr, pgtol, wa, iwa,
           dsave );
 end
 
-    
+
 function lbfgsb(ogFunc!::Function,
                  x::Array;
                  lb = [],
@@ -71,12 +71,12 @@ function lbfgsb(ogFunc!::Function,
                  iprint::Int64 = -1 # does not print
                  )
     initial_x = x;
-        
+
     m = [convert(Int32, m)]
     factr = [convert(Float64, factr)];
     pgtol = [convert(Float64, pgtol)];
     iprint = [convert(Int32, iprint)];
-    
+
     n = [convert(Int32, length(x))]; # number of variables
     f = [convert(Float64, 0.0)]; # The value of the objective.
     g = [convert(Float64, 0.0) for i=1:(n[1])]; # The value of the gradient.
@@ -121,7 +121,7 @@ function lbfgsb(ogFunc!::Function,
         if task[1] == UInt32('F')
             f[1] = convert( Float64, ogFunc!(x,g) );
             c += 1;
-            
+
         elseif task[1] == UInt32('N')
             t += 1;
             if t >= maxiter # exceed maximum number of iteration
@@ -144,7 +144,7 @@ function lbfgsb(ogFunc!::Function,
     end
 
     return (f[1], x, t, c, status)
-    
+
 end # function lbfgsb
 
 
@@ -160,12 +160,12 @@ function lbfgsb(objFunc::Function,
                  pgtol::Float64 = 1e-5,
                  iprint::Int64 = -1 # does not print
                  )
-    
+
     function _ogFunc!(x, g::Array)
         gradFunc!(x, g);
         return objFunc(x);
     end
-    
+
     return lbfgsb(_ogFunc!,
            x;
            lb=lb,

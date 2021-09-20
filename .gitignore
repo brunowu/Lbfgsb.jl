@@ -73,3 +73,5 @@ install_manifest.txt
 /test/*
 libpysegfit.so
 segfit
+
+*.log
