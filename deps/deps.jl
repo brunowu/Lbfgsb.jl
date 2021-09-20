@@ -11,4 +11,4 @@ macro checked_lib(libname, path)
     Please re-run Pkg.build(package), and restart Julia.")
     quote const $(esc(libname)) = $path end
 end
-@checked_lib liblbfgsbf "$libpath"
+@checked_lib liblbfgsbf libpath
