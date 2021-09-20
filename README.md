@@ -1,5 +1,15 @@
 # Lbfgsb.jl
 
+## Update
+
+This is a fork of a Julia wrapper of the L-bfgs-b fortran code from [jey/Lbfgsb.jl](https://github.com/jey/Lbfgsb.jl).
+
+The only change is to support the installation of package trough ```Pkg.add``` rather than ```Pkg.clone```. The latter was
+deprecated since Julia 1.0.
+
+### New installation
+run ```Pkg.add(PackageSpec(url="https://github.com/brunowu/Lbfgsb.jl", rev="master"))```
+
 [![Build Status](https://travis-ci.org/yuhonglin/Lbfgsb.jl.png?branch=master)](https://travis-ci.org/yuhonglin/Lbfgsb.jl)
 
 
@@ -43,11 +53,10 @@ I am new to Julia language so the code will be cleaned gradually
 
   - Other parameters : see the paper above for reference (mostly does not need to modify)
   - ```iprint``` : printing level of the fortran routine, set to ```-1``` if you does not want to print anything
-  
+
 License
 ----
 BSD-3
 
 [lbfgsb fortran library]:http://users.iems.northwestern.edu/~nocedal/lbfgsb.html
 [this wrapper]:http://hannes.nickisch.org/code/glm-ie/pls/lbfgsb/README.html
-
